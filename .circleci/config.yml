@@ -8,7 +8,9 @@ jobs:
       - checkout
       - run:
           name: validate ami.json
-          command: packer validate ami.json
+          command: |
+	    ls .
+	    packer validate ami.json
       - run:
           name: build ami
           command: packer build -var-file=vars.json ami.json
