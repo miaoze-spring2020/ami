@@ -7,9 +7,10 @@ jobs:
     steps:
       - checkout
       - run:
+            ls .
+      - run:
           name: validate ami.json
-          command: |
-	    ls .
+          command:
 	    packer validate ami.json
       - run:
           name: build ami
