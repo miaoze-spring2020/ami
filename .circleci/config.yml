@@ -18,7 +18,8 @@ jobs:
             echo 'export REGION=$aws_region' >> $BASH_ENV
             echo 'export USERS=$aws_users' >> $BASH_ENV
             source $BASH_ENV
+            echo $REGION
       - run:
           name: build ami
           working_directory: ~/project
-          command: packer build -var 'aws_access_key=$ACCESS_KEY' -var 'aws_secret_key=$SECRET_KEY' -var 'aws_region=$REGION' -var 'aws_users=$USERS' ami.json
+          command: packer build -var 'aws_access_key=$ACCESS_KEY' -var 'aws_secret_key=$SECRET_KEY' -var 'aws_region=us-east-1' -var 'aws_users=$USERS' ami.json
