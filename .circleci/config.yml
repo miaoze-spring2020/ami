@@ -10,6 +10,7 @@ jobs:
           name: validate ami.json
           working_directory: ~/project
           command: packer validate ami.json
+      - run: echo $aws_region
       - run:
           name: build ami
           working_directory: ~/project
