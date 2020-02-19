@@ -18,7 +18,7 @@
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
-	    "ami_users": "572835146282,003104533300",
+	    "ami_users": "{{user `aws_users`}}",
             "ami_description": "Ubuntu AMI for CSYE 6225 - Spring 2020",
             "launch_block_device_mappings": [
                 {
@@ -35,7 +35,8 @@
             "type": "shell",
             "inline": [
                 "sudo apt-get update",
-                "sudo apt-get install -y default-jdk"
+                "sudo apt-get install -y default-jdk",
+                "sudo apt-get install -y tomcat9"
             ]
         }
     ]
