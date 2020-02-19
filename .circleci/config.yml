@@ -12,8 +12,8 @@ jobs:
           command: packer validate ami.json
       - run:
           name: import variables
-          command: echo ${aws_users}
+          command: aws_region = ${aws_region}
       - run:
           name: build ami
           working_directory: ~/project
-          command: packer build -var 'aws_access_key=${aws_access_key}' -var 'aws_secret_key=${aws_secret_key}' -var 'aws_region=${aws_region}' -var 'aws_users=$aws_users' ami.json
+          command: packer build -var 'aws_access_key=${aws_access_key}' -var 'aws_secret_key=${aws_secret_key}' -var 'aws_region=$aws_region' -var 'aws_users=$aws_users' ami.json
