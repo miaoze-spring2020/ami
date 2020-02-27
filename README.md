@@ -1,4 +1,4 @@
-#ami
+#packer build ami
 
 #Packer Installation(for linux user):
 - sudo apt-get update
