@@ -18,7 +18,7 @@
             "source_ami": "{{user `source_ami`}}",
             "ssh_username": "{{user `ssh_username`}}",
             "ami_name": "csye6225_{{timestamp}}",
-	    "ami_users": "{{user `aws_users`}}",
+            "ami_users": "{{user `aws_users`}}",
             "ami_description": "Ubuntu AMI for CSYE 6225 - Spring 2020",
             "launch_block_device_mappings": [
                 {
@@ -30,14 +30,19 @@
             ]
         }
     ],
-    "provisioners": [
+    "provisioners": [ 
         {
             "type": "shell",
             "inline": [
                 "sudo apt-get update",
                 "sudo apt-get install -y default-jdk",
                 "sudo apt-get install -y tomcat9",
-                "sudo apt-get install -y maven"
+                "sudo apt-get install -y maven",
+                "sudo apt-get install -y ruby",
+                "sudo apt-get install wget",
+                "wget https://aws-codedeploy-{{user `aws_region`}}.s3.{{user `aws_region`}}.amazonaws.com/latest/install",
+                "chmod +x ./install",
+                "sudo ./install auto"
             ]
         }
     ]
