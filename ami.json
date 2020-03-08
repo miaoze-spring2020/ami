@@ -30,7 +30,7 @@
             ]
         }
     ],
-    "provisioners": [ 
+    "provisioners": [
         {
             "type": "shell",
             "inline": [
@@ -42,7 +42,10 @@
                 "sudo apt-get install wget",
                 "wget https://aws-codedeploy-{{user `aws_region`}}.s3.{{user `aws_region`}}.amazonaws.com/latest/install",
                 "chmod +x ./install",
-                "sudo ./install auto"
+                "sudo ./install auto",
+                "curl \"https: //awscli.amazonaws.com/awscli-exe-linux-x86_64.zip\" -o \"awscliv2.zip\"",
+                "unzip awscliv2.zip",
+                "sudo ./aws/install"
             ]
         }
     ]
