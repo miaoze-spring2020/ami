@@ -7,3 +7,6 @@ crash.log
 
 # For built boxes
 *.box
+
+#ignore vars
+vars.json
