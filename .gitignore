@@ -8,5 +8,5 @@ crash.log
 # For built boxes
 *.box
 
-# For local vars
+#ignore vars
 vars.json
