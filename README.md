@@ -1,13 +1,13 @@
-#packer build ami
+# packer build ami
 
-#Packer Installation(for linux user):
+# Packer Installation(for linux user):
 - sudo apt-get update
 - sudo apt-get install packer
 
-#Packer validation:
+# Packer validation:
 - packer validate file_name.json
 
-#Packer build ami:
+# Packer build ami:
 - packer build \
     -var "aws_access_key=REDACTED" \
     -var "aws_secret_key=REDACTED" \
@@ -15,5 +15,7 @@
     -var "aws_users=REDACTED" \
     ami.json
 
-#hints:
+# hints:
 Please remember to use double quote in command line for using environment paramters
+
+# new component: codedeploy agent
