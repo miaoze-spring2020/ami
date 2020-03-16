@@ -45,6 +45,8 @@
                 "sudo ./install auto",
                 "wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
                 "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb",
+                "cd /etc/systemd/system",
+                "sudo chmod 777 *",
                 "sudo touch /etc/systemd/system/awslogs.service",
                 "echo '[Unit]' >> /etc/systemd/system/awslogs.service",
                 "echo 'Description=Cloud Watch Service' >> /etc/systemd/system/awslogs.service",
@@ -60,6 +62,7 @@
                 "echo '' > /etc/systemd/system/awslogs.service",
                 "echo '[Install]' > /etc/systemd/system/awslogs.service",
                 "echo 'WantedBy=multi-user.target' > /etc/systemd/system/awslogs.service",
+                "sudo systemctl daemon-reload",
                 "sudo systemctl enable awslogs.service"
             ]
         }
