@@ -45,24 +45,7 @@
                 "sudo ./install auto",
                 "wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb",
                 "sudo dpkg -i -E ./amazon-cloudwatch-agent.deb",
-                "sudo chmod -R o+w /etc/systemd/system",
-                "touch /etc/systemd/system/awslogs.service",
-                "echo '[Unit]' >> /etc/systemd/system/awslogs.service",
-                "echo 'Description=Cloud Watch Service' >> /etc/systemd/system/awslogs.service",
-                "echo 'After=rc-local.service' >> /etc/systemd/system/awslogs.service",
-                "echo '' >> /etc/systemd/system/awslogs.service",
-                "echo '[Service]' >> /etc/systemd/system/awslogs.service",
-                "echo 'Type=simple' >> /etc/systemd/system/awslogs.service",
-                "echo 'Restart=always' >> /etc/systemd/system/awslogs.service",
-                "echo 'KillMode=process' >> /etc/systemd/system/awslogs.service",
-                "echo 'TimeoutSec=infinity' >> /etc/systemd/system/awslogs.service",
-                "echo 'PIDFile=/var/awslogs/state/awslog.pid' >> /etc/systemd/system/awslogs.service",
-                "echo 'ExecStart=/var/awslogs/bin/awslogs-agent-launcher.sh --start --background --pidfile $PIDFILE --user awslogs --chuid awslogs &' >> /etc/systemd/system/awslogs.service",
-                "echo '' >> /etc/systemd/system/awslogs.service",
-                "echo '[Install]' >> /etc/systemd/system/awslogs.service",
-                "echo 'WantedBy=multi-user.target' >> /etc/systemd/system/awslogs.service",
-                "sudo systemctl daemon-reload",
-                "sudo systemctl enable awslogs.service"
+                "sudo systemctl enable amazon-cloudwatch-agent.service"
             ]
         }
     ]
