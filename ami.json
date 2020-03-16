@@ -48,7 +48,7 @@
                 "sudo chmod -R o+w /etc/systemd/system",
                 "touch /etc/systemd/system/awslogs.service",
                 "echo '[Unit]' >> /etc/systemd/system/awslogs.service",
-                "echo 'Description=Cloud Watch Service' >> etc/systemd/system/awslogs.service",
+                "echo 'Description=Cloud Watch Service' >> /etc/systemd/system/awslogs.service",
                 "echo 'After=rc-local.service' >> /etc/systemd/system/awslogs.service",
                 "echo '' >> /etc/systemd/system/awslogs.service",
                 "echo '[Service]' >> /etc/systemd/system/awslogs.service",
